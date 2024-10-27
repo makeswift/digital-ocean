@@ -6,11 +6,11 @@ POSTGRES_PASSWORD=$(openssl rand -base64 12)  # Generate a random 12-character p
 POSTGRES_DB="mydatabase"
 SECRET_KEY="my-secret" # for the demo app
 NEXT_PUBLIC_SAFE_KEY="safe-key" # for the demo app
-DOMAIN_NAME="nextselfhost.dev" # replace with your own
-EMAIL="your-email@example.com" # replace with your own
+DOMAIN_NAME="drewpledger.com" # replace with your own
+EMAIL="drew@makeswift.com" # replace with your own
 
 # Script Vars
-REPO_URL="https://github.com/leerob/next-self-host.git"
+REPO_URL="https://github.com/makeswift/digital-ocean.git"
 APP_DIR=~/myapp
 SWAP_SIZE="1G"  # Swap size of 1GB
 
@@ -112,7 +112,7 @@ fi
 
 # Create Nginx config with reverse proxy, SSL support, rate limiting, and streaming support
 sudo cat > /etc/nginx/sites-available/myapp <<EOL
-limit_req_zone \$binary_remote_addr zone=mylimit:10m rate=10r/s;
+limit_req_zone \$binary_remote_addr zone=mylimit:10m rate=10r/s;o0o000o0oo9
 
 server {
     listen 80;
