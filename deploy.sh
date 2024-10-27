@@ -114,7 +114,7 @@ fi
 
 # Create Nginx config with reverse proxy, SSL support, rate limiting, and streaming support
 sudo cat > /etc/nginx/sites-available/myapp <<EOL
-limit_req_zone \$binary_remote_addr zone=mylimit:10m rate=10r/s;o0o000o0oo9
+limit_req_zone \$binary_remote_addr zone=mylimit:20m rate=10r/s;
 
 server {
     listen 80;
