@@ -9,13 +9,16 @@
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
+    "@makeswift/runtime": "^0.20.5",
+    "@radix-ui/react-accordion": "^1.2.1",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "drizzle-kit": "^0.24.2",
     "drizzle-orm": "^0.33.0",
-    "next": "15.0.0-canary.178",
+    "next": "14.2.16",
     "postgres": "^3.4.4",
-    "react": "19.0.0-rc-2d16326d-20240930",
-    "react-dom": "19.0.0-rc-2d16326d-20240930"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,10 +1,12 @@
-import type { NextConfig } from 'next';
 // import path from 'path';
+import createWithMakeswift from "@makeswift/runtime/next/plugin";
 
-const nextConfig: NextConfig = {
+const withMakeswift = createWithMakeswift();
+
+const nextConfig = {
   // Recommended: this will reduce output
   // Docker image size by 80%+
-  output: 'standalone',
+  output: "standalone",
   // Optional: bring your own cache handler
   // cacheHandler: path.resolve('./cache-handler.mjs'),
   // cacheMaxMemorySize: 0, // Disable default in-memory caching
@@ -17,11 +19,11 @@ const nextConfig: NextConfig = {
     // Sharp, which is built-into `next start`
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
-        search: '',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+        search: "",
       },
     ],
   },
@@ -34,4 +36,4 @@ const nextConfig: NextConfig = {
   // swrDelta: 3600 // seconds
 };
 
-export default nextConfig;
+export default withMakeswift(nextConfig);

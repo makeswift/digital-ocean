@@ -8,6 +8,7 @@ SECRET_KEY="my-secret" # for the demo app
 NEXT_PUBLIC_SAFE_KEY="safe-key" # for the demo app
 DOMAIN_NAME="drewpledger.com" # replace with your own
 EMAIL="drew@makeswift.com" # replace with your own
+MAKESWIFT_SITE_API_KEY=24a9b2ff-e6f3-45e4-a756-d63b5d991545
 
 # Script Vars
 REPO_URL="https://github.com/makeswift/digital-ocean.git"
@@ -82,6 +83,7 @@ echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> "$APP_DIR/.env"
 echo "POSTGRES_DB=$POSTGRES_DB" >> "$APP_DIR/.env"
 echo "DATABASE_URL=$DATABASE_URL" >> "$APP_DIR/.env"
 echo "DATABASE_URL_EXTERNAL=$DATABASE_URL_EXTERNAL" >> "$APP_DIR/.env"
+echo "MAKESWIFT_SITE_API_KEY=$MAKESWIFT_SITE_API_KEY" >> "$APP_DIR/.env"
 
 # These are just for the demo of env vars
 echo "SECRET_KEY=$SECRET_KEY" >> "$APP_DIR/.env"
@@ -176,4 +178,5 @@ The .env file has been created with the following values:
 - DATABASE_URL
 - DATABASE_URL_EXTERNAL
 - SECRET_KEY
+- MAKESWIFT_SITE_API_KEY
 - NEXT_PUBLIC_SAFE_KEY"
