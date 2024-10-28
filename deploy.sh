@@ -66,9 +66,6 @@ else
   cd $APP_DIR
 fi
 
-
-echo "DATABASE_URL=$DATABASE_URL" >> "$APP_DIR/.env"
-echo "DATABASE_URL_EXTERNAL=$DATABASE_URL_EXTERNAL" >> "$APP_DIR/.env"
 echo "MAKESWIFT_SITE_API_KEY=$MAKESWIFT_SITE_API_KEY" >> "$APP_DIR/.env"
 
 # Install Nginx
