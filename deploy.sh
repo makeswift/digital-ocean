@@ -1,11 +1,6 @@
 #!/bin/bash
 
 # Env Vars
-POSTGRES_USER="myuser"
-POSTGRES_PASSWORD=$(openssl rand -base64 12)  # Generate a random 12-character password
-POSTGRES_DB="mydatabase"
-SECRET_KEY="my-secret" # for the demo app
-NEXT_PUBLIC_SAFE_KEY="safe-key" # for the demo app
 DOMAIN_NAME="drewpledger.com" # replace with your own
 EMAIL="drew@makeswift.com" # replace with your own
 MAKESWIFT_SITE_API_KEY=24a9b2ff-e6f3-45e4-a756-d63b5d991545
@@ -71,23 +66,10 @@ else
   cd $APP_DIR
 fi
 
-# For Docker internal communication ("db" is the name of Postgres container)
-DATABASE_URL="postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@db:5432/$POSTGRES_DB"
 
-# For external tools (like Drizzle Studio)
-DATABASE_URL_EXTERNAL="postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost:5432/$POSTGRES_DB"
-
-# Create the .env file inside the app directory (~/myapp/.env)
-echo "POSTGRES_USER=$POSTGRES_USER" > "$APP_DIR/.env"
-echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> "$APP_DIR/.env"
-echo "POSTGRES_DB=$POSTGRES_DB" >> "$APP_DIR/.env"
 echo "DATABASE_URL=$DATABASE_URL" >> "$APP_DIR/.env"
 echo "DATABASE_URL_EXTERNAL=$DATABASE_URL_EXTERNAL" >> "$APP_DIR/.env"
 echo "MAKESWIFT_SITE_API_KEY=$MAKESWIFT_SITE_API_KEY" >> "$APP_DIR/.env"
-
-# These are just for the demo of env vars
-echo "SECRET_KEY=$SECRET_KEY" >> "$APP_DIR/.env"
-echo "NEXT_PUBLIC_SAFE_KEY=$NEXT_PUBLIC_SAFE_KEY" >> "$APP_DIR/.env"
 
 # Install Nginx
 sudo apt install nginx -y
@@ -168,15 +150,8 @@ if ! sudo docker-compose ps | grep "Up"; then
 fi
 
 # Output final message
-echo "Deployment complete. Your Next.js app and PostgreSQL database are now running. 
-Next.js is available at https://$DOMAIN_NAME, and the PostgreSQL database is accessible from the web service.
+echo "Deployment complete. Your Next.js app is now running. 
+Next.js is available at https://$DOMAIN_NAME.
 
 The .env file has been created with the following values:
-- POSTGRES_USER
-- POSTGRES_PASSWORD (randomly generated)
-- POSTGRES_DB
-- DATABASE_URL
-- DATABASE_URL_EXTERNAL
-- SECRET_KEY
 - MAKESWIFT_SITE_API_KEY
-- NEXT_PUBLIC_SAFE_KEY"

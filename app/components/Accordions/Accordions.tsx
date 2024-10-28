@@ -1,26 +1,20 @@
 "use client";
 
-import React, { ReactNode, Ref, forwardRef } from "react";
-
-import * as Accordion from "@radix-ui/react-accordion";
-import clsx from "clsx";
-
-type AccordionItem = {
-  title: ReactNode;
-  body: ReactNode;
-};
+import React, { Ref, forwardRef } from "react";
 
 type Props = {
   className?: string;
-  accordions: AccordionItem[];
-  type: "single" | "multiple";
 };
 
 export const Accordions = forwardRef(function Accordions(
-  { className, accordions, type = "multiple" }: Props,
-  ref: Ref<HTMLUListElement>
+  { className }: Props,
+  ref: Ref<HTMLDivElement>
 ) {
-  return <div className={className}>Accordion!</div>;
+  return (
+    <div className={className} ref={ref}>
+      Accordion!
+    </div>
+  );
 });
 
 export default Accordions;
